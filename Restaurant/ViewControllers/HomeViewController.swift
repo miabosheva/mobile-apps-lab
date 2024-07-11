@@ -56,6 +56,7 @@ class HomeViewController: UITableViewController {
         } else if let foods {
             detailsController.food = foods[indexPath.row]
         }
+        navigationController?.navigationBar.tintColor = .orange
         navigationController?.pushViewController(detailsController, animated: true)
     }
 }

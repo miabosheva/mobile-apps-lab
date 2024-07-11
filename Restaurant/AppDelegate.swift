@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Restaurant
-//
-//  Created by Mia on 7/10/24.
-//
-
 import UIKit
 
 @main

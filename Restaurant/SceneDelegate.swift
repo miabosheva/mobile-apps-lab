@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Restaurant
-//
-//  Created by Mia on 7/10/24.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -30,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let controllers = [drinksViewController, foodsViewController]
         tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
+        tabBarController.tabBar.tintColor = .orange
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
@@ -67,13 +61,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 private extension SceneDelegate {
     func setupDrinksViewController(vc: HomeViewController, drinks: [Drink]) {
-        vc.tabBarItem.image = UIImage(systemName: "star")
+        vc.tabBarItem.image = UIImage(systemName: "wineglass")
         vc.title = "Drinks"
         vc.drinks = drinks
     }
     
     func setupFoodViewController(vc: HomeViewController, foods: [Food]) {
-        vc.tabBarItem.image = UIImage(systemName: "photo")
+        vc.tabBarItem.image = UIImage(systemName: "fork.knife")
         vc.title = "Foods"
         vc.foods = foods
     }

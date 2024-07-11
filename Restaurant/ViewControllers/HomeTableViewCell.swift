@@ -19,6 +19,8 @@ class HomeTableViewCell: UITableViewCell {
 extension HomeTableViewCell {
     
     func configure(with object: Any) {
+        cellImage.contentMode = .scaleAspectFill
+        cellImage.layer.cornerRadius = 15
         if let drink = object as? Drink {
             if let imageTitle = drink.image {
                 cellImage.image = UIImage(named: imageTitle)

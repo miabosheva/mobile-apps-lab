@@ -1,10 +1,3 @@
-//
-//  DrinkDetailViewController.swift
-//  Restaurant
-//
-//  Created by Mia on 7/11/24.
-//
-
 import UIKit
 
 class DetailViewController: UIViewController {
@@ -23,6 +16,7 @@ class DetailViewController: UIViewController {
     }
     
     func setupUI() {
+        objectImage.contentMode = .scaleAspectFill
         if let drink {
             titleLabel.text = drink.title
             typeLabel.text = "Type of drink: \(drink.type)"

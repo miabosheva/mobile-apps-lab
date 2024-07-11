@@ -100,7 +100,7 @@
         <scene sceneID="eST-7E-278">
             <objects>
                 <navigationController title="Drinks" automaticallyAdjustsScrollViewInsets="NO" id="EFc-nM-gYl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="SUx-LY-H3L"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="food" id="SUx-LY-H3L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Nq-se-M7a">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -135,6 +135,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="food" width="128" height="128"/>
         <image name="place" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
