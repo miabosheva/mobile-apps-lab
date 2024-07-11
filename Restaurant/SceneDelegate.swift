@@ -18,7 +18,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        let tabBarController = UITabBarController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let drinksViewController = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+        let foodsViewController = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
         
+        let objects = ModelObjects()
+        
+        setupDrinksViewController(vc: drinksViewController, drinks: objects.drinks)
+        setupFoodViewController(vc: foodsViewController, foods: objects.foods)
+        
+        let controllers = [drinksViewController, foodsViewController]
+        tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,5 +63,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+private extension SceneDelegate {
+    func setupDrinksViewController(vc: HomeViewController, drinks: [Drink]) {
+        vc.tabBarItem.image = UIImage(systemName: "star")
+        vc.title = "Drinks"
+        vc.drinks = drinks
+    }
+    
+    func setupFoodViewController(vc: HomeViewController, foods: [Food]) {
+        vc.tabBarItem.image = UIImage(systemName: "photo")
+        vc.title = "Foods"
+        vc.foods = foods
+    }
 }
 

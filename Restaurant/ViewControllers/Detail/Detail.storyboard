@@ -11,7 +11,7 @@
         <!--Detail View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="DetailViewController" customModule="Restaurant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="DetailViewController" customModule="Restaurant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,6 +89,12 @@
                             <constraint firstItem="Ad9-yc-w7r" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vIE-Yh-PAK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="9z6-vL-J5D" id="n2g-gU-J1d"/>
+                        <outlet property="objectImage" destination="3LM-oA-wED" id="YTu-iP-2IG"/>
+                        <outlet property="titleLabel" destination="eqA-fB-Yoh" id="7QJ-0m-yKb"/>
+                        <outlet property="typeLabel" destination="Id5-EQ-I6S" id="bl6-R8-Lcy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

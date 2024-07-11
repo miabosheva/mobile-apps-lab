@@ -18,14 +18,25 @@ class HomeTableViewCell: UITableViewCell {
 
 extension HomeTableViewCell {
     
-    func configure(with drink: Drink) {
-        if let imageTitle = drink.image {
-            cellImage.image = UIImage(named: imageTitle)
-        } else {
-            cellImage.image = UIImage(systemName: "photo")
+    func configure(with object: Any) {
+        if let drink = object as? Drink {
+            if let imageTitle = drink.image {
+                cellImage.image = UIImage(named: imageTitle)
+            } else {
+                cellImage.image = UIImage(systemName: "photo")
+            }
+            titleLabel.text = drink.title
+            descriptionLabel.text = drink.description
+            typeLabel.text = "Type: \(drink.type)"
+        } else if let foods = object as? Food {
+            if let imageTitle = foods.image {
+                cellImage.image = UIImage(named: imageTitle)
+            } else {
+                cellImage.image = UIImage(systemName: "photo")
+            }
+            titleLabel.text = foods.title
+            descriptionLabel.text = foods.description
+            typeLabel.text = "Type: \(foods.type)"
         }
-        titleLabel.text = drink.title
-        descriptionLabel.text = drink.description
-        typeLabel.text = "Type: \(drink.type)"
     }
 }

@@ -1,12 +1,6 @@
 import Foundation
 
-protocol DefaultObject {
-    var title: String { get set }
-    var description: String { get set }
-    var image: String? { get set }
-}
-
-struct Drink: DefaultObject {
+struct Drink {
     var title: String
     var description: String
     var type: DrinkType
@@ -18,7 +12,7 @@ enum DrinkType {
     case NonAlcoholic
 }
 
-struct Food: DefaultObject {
+struct Food {
     var title: String
     var description: String
     var type: FoodType
@@ -45,8 +39,8 @@ class ModelObjects: ObservableObject {
         ]
         
         self.foods = [
-            Food(title: "Lasagna", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Dinner, image: ""),
-            Food(title: "Eggs", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Breakfast, image: ""),
+            Food(title: "Lasagna", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Dinner, image: nil),
+            Food(title: "Eggs", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Breakfast, image: nil),
             Food(title: "Toast", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Breakfast, image: nil),
             Food(title: "Candy", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Lunch, image: nil),
             Food(title: "Ceasar Salad", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Lunch, image: nil)
