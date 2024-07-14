@@ -21,6 +21,7 @@
 		0DA6A64D2C43E61900E9CF35 /* DetailsShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6A6482C43E61900E9CF35 /* DetailsShowTableViewCell.swift */; };
 		0DA6A64E2C43E61900E9CF35 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6A6492C43E61900E9CF35 /* DetailsViewController.swift */; };
 		0DA6A6532C43E65500E9CF35 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6A6522C43E65500E9CF35 /* ReviewTableViewCell.swift */; };
+		0DA6A6552C43F54800E9CF35 /* UserDefaultsHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6A6542C43F54800E9CF35 /* UserDefaultsHelperMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		0DA6A6482C43E61900E9CF35 /* DetailsShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsShowTableViewCell.swift; sourceTree = "<group>"; };
 		0DA6A6492C43E61900E9CF35 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		0DA6A6522C43E65500E9CF35 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewTableViewCell.swift; path = ../../../../../../../files/ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		0DA6A6542C43F54800E9CF35 /* UserDefaultsHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelperMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				0D24806E2C3EC13B0089ECAD /* AppDelegate.swift */,
 				0D2480702C3EC13B0089ECAD /* SceneDelegate.swift */,
 				0D864DB92C3ECC1800E9CE36 /* Objects.swift */,
+				0DA6A6542C43F54800E9CF35 /* UserDefaultsHelperMethods.swift */,
 				0D864DBB2C3ED51900E9CE36 /* ViewControllers */,
 				0D2480772C3EC13C0089ECAD /* Assets.xcassets */,
 				0D2480792C3EC13C0089ECAD /* LaunchScreen.storyboard */,
@@ -209,6 +212,7 @@
 				0D864DBA2C3ECC1800E9CE36 /* Objects.swift in Sources */,
 				0DA6A64E2C43E61900E9CF35 /* DetailsViewController.swift in Sources */,
 				0DA6A64D2C43E61900E9CF35 /* DetailsShowTableViewCell.swift in Sources */,
+				0DA6A6552C43F54800E9CF35 /* UserDefaultsHelperMethods.swift in Sources */,
 				0D24806F2C3EC13B0089ECAD /* AppDelegate.swift in Sources */,
 				0D864DBF2C3ED58600E9CE36 /* HomeTableViewCell.swift in Sources */,
 				0DA6A6532C43E65500E9CF35 /* ReviewTableViewCell.swift in Sources */,

@@ -16,10 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let drinksViewController = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
         let foodsViewController = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
         
-        let objects = ModelObjects()
+        let _ = ModelObjects.init()
         
-        setupDrinksViewController(vc: drinksViewController, drinks: objects.drinks)
-        setupFoodViewController(vc: foodsViewController, foods: objects.foods)
+        setupDrinksViewController(vc: drinksViewController, drinks: UserDefaultsHelperMethods.loadDrinksFromUserDefaults()!)
+        setupFoodViewController(vc: foodsViewController, foods: UserDefaultsHelperMethods.loadFoodsFromUserDefaults()!)
         
         let controllers = [drinksViewController, foodsViewController]
         tabBarController.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-final class DetailsViewController : UIViewController {
+final class DetailsViewController : UIViewController, ModalViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,15 +16,35 @@ final class DetailsViewController : UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
-    
+
     // MARK: - Actions
+    
+    func didDismissModalViewController() {
+        if let food {
+            if let loadedFood = UserDefaultsHelperMethods.loadFood(food.title) {
+                self.food = loadedFood
+            }
+        } else if let drink {
+            if let loadedDrink = UserDefaultsHelperMethods.loadDrink(drink.title) {
+                self.drink = loadedDrink
+            }
+        }
+        tableView.reloadData()
+    }
+    
     @IBAction func addACommentButtonTap() {
         let storyboard = UIStoryboard(name: "WriteComment", bundle: nil)
         
         let writeCommentVC = storyboard.instantiateViewController(withIdentifier: "writeCommentController") as! WriteCommentController
         
+        if let drink {
+            writeCommentVC.drinkTitle = drink.title
+        } else if let food {
+            writeCommentVC.foodTitle = food.title
+        }
+        
         let navigationController = UINavigationController(rootViewController: writeCommentVC)
+        writeCommentVC.delegate = self
         present(navigationController, animated: true)
     }
 }
@@ -55,17 +75,17 @@ extension DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            let objectCell = tableView.dequeueReusableCell(
+            let detailsCell = tableView.dequeueReusableCell(
                 withIdentifier: String(describing: DetailsShowTableViewCell.self),
                 for: indexPath
             ) as! DetailsShowTableViewCell
             
             if let drink {
-                objectCell.configure(with: drink)
+                detailsCell.configure(with: drink)
             } else if let food {
-                objectCell.configure(with: food)
+                detailsCell.configure(with: food)
             }
-            return objectCell
+            return detailsCell
         }
         else {
             let reviewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentTableViewCell.self),
@@ -82,8 +102,6 @@ extension DetailsViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Helper Methods
-
 private extension DetailsViewController {
     func setupUI() {
         tableView.estimatedRowHeight = 1000
@@ -93,3 +111,8 @@ private extension DetailsViewController {
         self.title = drink?.title ?? food?.title ?? ""
     }
 }
+
+protocol ModalViewControllerDelegate: AnyObject {
+    func didDismissModalViewController()
+}
+

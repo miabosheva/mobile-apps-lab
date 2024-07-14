@@ -33,10 +33,11 @@ extension DetailsShowTableViewCell {
             } else {
                 objectImage.image = UIImage(systemName: "star")
             }
-            guard let comments = drink.comments else {
+            guard drink.comments != nil else {
                 noCommentsView.isHidden = false
                 return
             }
+            noCommentsView.isHidden = true
         } else if let food = object as? Food {
             typeLabel.text = "Type of food: \(food.type)"
             descriptionLabel.text = food.description
@@ -45,10 +46,11 @@ extension DetailsShowTableViewCell {
             } else {
                 objectImage.image = UIImage(systemName: "star")
             }
-            guard let comments = food.comments else {
+            guard food.comments != nil else {
                 noCommentsView.isHidden = false
                 return
             }
+            noCommentsView.isHidden = true
         }
     }
 }

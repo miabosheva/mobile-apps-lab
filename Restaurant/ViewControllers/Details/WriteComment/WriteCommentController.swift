@@ -3,66 +3,39 @@ import UIKit
 
 final class WriteCommentController: UIViewController {
     
-    // MARK: - Outlets
-    
     @IBOutlet weak var usernameInputView: UITextView!
     @IBOutlet weak var commentInputView: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var viewContainerForCommentText: UIView!
     @IBOutlet weak var viewContainerForUsernameText: UIView!
     
-    // MARK: - Lifecycle Methods
+    var foodTitle: String?
+    var drinkTitle: String?
+    
+    weak var delegate: ModalViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    // MARK: - Actions
-    
     @IBAction func submitButtonTap() {
-//        guard let show, let authInfo else { return }
-//
-//        let rating = ratingView.rating
-//        let comment = textView.text ?? ""
-//        let showid = show.id
-//        
-//        let parameters: [String : Any] = [
-//            "rating" : rating,
-//            "comment" : comment,
-//            "show_id" : showid
-//        ]
-//        
-//        animateSubmitButtonTap()
-//        
-//        AF
-//          .request(
-//            "https://tv-shows.infinum.academy/reviews",
-//            method: .post,
-//            parameters: parameters,
-//            encoding: JSONEncoding.default,
-//            headers: HTTPHeaders(authInfo.headers)
-//          )
-//          .validate()
-//          .responseDecodable(of: ReviewSubmitResponse.self) { [weak self] dataResponse in
-//              guard let self = self else { return }
-//              switch dataResponse.result {
-//              case .success(_):
-//                  delegate?.submitReview()
-//                  close()
-//              case .failure(let error):
-//                  print(error.localizedDescription)
-//              }
-//          }
+        if let foodTitle {
+            UserDefaultsHelperMethods.saveCommentForFood(foodTitle: foodTitle, comment: Comment(username: usernameInputView.text, review: commentInputView.text))
+        } else if let drinkTitle {
+            UserDefaultsHelperMethods.saveCommentForDrink(drinkTitle: drinkTitle, comment: Comment(username: usernameInputView.text, review: commentInputView.text))
+        }
+        self.usernameInputView.text = ""
+        self.commentInputView.text = ""
+        self.close()
     }
 }
 
 private extension WriteCommentController {
     
-    // MARK: - Helper Methods
-    
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
+        self.delegate?.didDismissModalViewController()
     }
     
     func animateSubmitButtonTap() {
@@ -84,7 +57,7 @@ private extension WriteCommentController {
   
     func setupUI() {
         submitButton.isEnabled = false
-        self.title = "Write a Comment"
+        self.title = "Write a Comment for: \(foodTitle ?? drinkTitle!)"
         viewContainerForCommentText.layer.cornerRadius = 10
         viewContainerForUsernameText.layer.cornerRadius = 10
         

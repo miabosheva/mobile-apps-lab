@@ -1,6 +1,6 @@
 import Foundation
 
-struct Drink {
+struct Drink: Codable {
     var title: String
     var description: String
     var type: DrinkType
@@ -8,12 +8,12 @@ struct Drink {
     var comments: [Comment]?
 }
 
-enum DrinkType {
+enum DrinkType: String, Codable {
     case Alcoholic
     case NonAlcoholic
 }
 
-struct Food {
+struct Food: Codable {
     var title: String
     var description: String
     var type: FoodType
@@ -21,22 +21,22 @@ struct Food {
     var comments: [Comment]?
 }
 
-struct Comment {
+struct Comment: Codable {
     var username: String
     var review: String
     var userImage: String?
 }
 
-enum FoodType {
+enum FoodType: String, Codable {
     case Breakfast
     case Lunch
     case Dinner
 }
 
-class ModelObjects: ObservableObject {
+class ModelObjects {
     
-    @Published var drinks: [Drink]
-    @Published var foods: [Food]
+    var drinks: [Drink]
+    var foods: [Food]
     
     init() {
         
@@ -46,6 +46,8 @@ class ModelObjects: ObservableObject {
             Comment(username: "someName", review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti.", userImage: nil),
             Comment(username: "AnotherUser", review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti.", userImage: nil)
         ]
+        
+        
         
         self.drinks = [
             Drink(title: "Mojito", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: DrinkType.Alcoholic, image: "mojito", comments: commentsMock),
@@ -61,5 +63,8 @@ class ModelObjects: ObservableObject {
             Food(title: "Candy", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Lunch, image: "candy", comments: commentsMock),
             Food(title: "Ceasar Salad", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nulla neque, laoreet quis laoreet eget, finibus eleifend orci. Suspendisse potenti. Praesent accumsan ex tellus, ac consectetur augue malesuada sed. Proin accumsan lacinia volutpat. Nulla mi tellus, aliquet in mauris vitae, elementum vehicula urna. Nulla facilisi. Nullam ac ante eget magna tristique semper. Etiam vestibulum euismod arcu, at ornare nisi porttitor rhoncus. Nunc sit amet mattis mi.", type: FoodType.Lunch, image: "ceasar-salad")
         ]
+        
+        UserDefaultsHelperMethods.storeDrinksInUserDefaults(drinks)
+        UserDefaultsHelperMethods.storeFoodsInUserDefaults(foods)
     }
 }
