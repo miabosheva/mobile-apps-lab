@@ -8,6 +8,7 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupUI()
     }
     
     // MARK: - Table view data source
@@ -69,4 +70,24 @@ extension HomeViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    func setupUI() {
+        let mapItem = UIBarButtonItem(
+            image: UIImage(systemName: "mappin.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(mapItemActionHandler)
+        )
+        mapItem.tintColor = .orange
+        navigationItem.rightBarButtonItem = mapItem
+    }
+}
+
+extension HomeViewController {
+    @objc func mapItemActionHandler() {
+        let storyboard = UIStoryboard(name: "Map", bundle: nil)
+        let mapVC = storyboard.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
+        navigationController?.pushViewController(mapVC, animated: true)
+    }
+    
 }
