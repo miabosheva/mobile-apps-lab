@@ -104,25 +104,23 @@ extension WriteCommentController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
-        let currentText:String = textView.text
+        guard let currentText = textView.text else { return true }
+
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
 
         if updatedText.isEmpty {
+            textView.text = ""
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
             submitButton.isEnabled = false
+            return false
         }
-        
-        else if textView.textColor == UIColor.lightGray && !text.isEmpty {
-            textView.textColor = UIColor.black
-            textView.text = text
-            
+
+        textView.textColor = .black
+        if !commentInputView.text.isEmpty && !usernameInputView.text.isEmpty {
             submitButton.isEnabled = true
         }
 
-        else {
-            return true
-        }
-        
-        return false
+        return true
     }
+
 }
