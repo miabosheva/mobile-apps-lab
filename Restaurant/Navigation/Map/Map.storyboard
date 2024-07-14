@@ -21,23 +21,26 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="03K-Mo-cwb">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="601.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="601"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="03K-Mo-cwb" secondAttribute="height" multiplier="393:601" id="kB4-US-c2c"/>
+                                        </constraints>
                                         <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic"/>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veR-2n-Lku">
-                                        <rect key="frame" x="0.0" y="605.66666666666663" width="393" height="16"/>
+                                        <rect key="frame" x="0.0" y="605" width="393" height="16"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="suR-BV-bna"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfK-am-Iw9">
-                                        <rect key="frame" x="16" y="625.66666666666663" width="361" height="33.666666666666629"/>
+                                        <rect key="frame" x="16" y="625" width="361" height="34.333333333333371"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN2-To-UYZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN2-To-UYZ">
                                         <rect key="frame" x="16" y="663.33333333333337" width="361" height="15.666666666666629"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
