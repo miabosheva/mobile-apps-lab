@@ -84,11 +84,11 @@ private extension WriteCommentController {
   
     func setupUI() {
         submitButton.isEnabled = false
-        viewContainerForCommentText.layer.cornerRadius = 10
         self.title = "Write a Comment"
-        commentInputView.delegate = self
-        
+        viewContainerForCommentText.layer.cornerRadius = 10
         viewContainerForUsernameText.layer.cornerRadius = 10
+        
+        commentInputView.delegate = self
         usernameInputView.delegate = self
         
         let backButton: UIBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close))
@@ -108,9 +108,19 @@ extension WriteCommentController: UITextViewDelegate {
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
 
         if updatedText.isEmpty {
+            textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
             submitButton.isEnabled = false
-        } else {
+        }
+        
+        else if textView.textColor == UIColor.lightGray && !text.isEmpty {
+            textView.textColor = UIColor.black
+            textView.text = text
+            
             submitButton.isEnabled = true
+        }
+
+        else {
+            return true
         }
         
         return false
