@@ -48,15 +48,15 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("selected row")
-        let storyboard = UIStoryboard(name: "Detail", bundle: nil)
-        let detailsController = storyboard.instantiateViewController(withIdentifier: "detailViewController") as! DetailViewController
+        let storyboard = UIStoryboard(name: "Details", bundle: nil)
+        let detailsController = storyboard.instantiateViewController(withIdentifier: "detailsViewController") as! DetailsViewController
         if let drinks {
             detailsController.drink = drinks[indexPath.row]
         } else if let foods {
             detailsController.food = foods[indexPath.row]
         }
         navigationController?.navigationBar.tintColor = .orange
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.pushViewController(detailsController, animated: true)
     }
 }
