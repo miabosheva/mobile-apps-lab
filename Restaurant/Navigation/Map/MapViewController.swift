@@ -16,7 +16,12 @@ class MapViewController: UIViewController {
         self.locationManager = LocationManager()
         self.locationManager.delegate = self
         locationManager.startUpdatingLocation()
+        setupUI()
+    }
+    
+    func setupUI() {
         self.title = "Restaurant Location"
+        self.navigationController?.navigationBar.tintColor = .orange
         cityLabel.text = ""
         temperatureLabel.text = ""
     }

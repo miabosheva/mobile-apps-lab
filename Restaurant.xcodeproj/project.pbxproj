@@ -25,6 +25,8 @@
 		0DA6A64E2C43E61900E9CF35 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6A6492C43E61900E9CF35 /* DetailsViewController.swift */; };
 		0DA6A6552C43F54800E9CF35 /* UserDefaultsHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6A6542C43F54800E9CF35 /* UserDefaultsHelperMethods.swift */; };
 		0DA6A6572C44087000E9CF35 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA6A6562C44087000E9CF35 /* ForecastModel.swift */; };
+		0DE7C4C52C486D6900BF11D9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE7C4C22C486D6900BF11D9 /* Profile.storyboard */; };
+		0DE7C4C62C486D6900BF11D9 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7C4C32C486D6900BF11D9 /* ProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		0DA6A6492C43E61900E9CF35 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		0DA6A6542C43F54800E9CF35 /* UserDefaultsHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelperMethods.swift; sourceTree = "<group>"; };
 		0DA6A6562C44087000E9CF35 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
+		0DE7C4C22C486D6900BF11D9 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		0DE7C4C32C486D6900BF11D9 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		0D864DBB2C3ED51900E9CE36 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				0DE7C4C42C486D6900BF11D9 /* My Profile */,
 				0D0ADB032C440C0E00DA1D2D /* Map */,
 				0DA6A64F2C43E61E00E9CF35 /* Details */,
 				0D6F5F252C40459500478200 /* Home */,
@@ -158,6 +163,16 @@
 			);
 			path = Helpers;
 			sourceTree = "<group>";
+		};
+		0DE7C4C42C486D6900BF11D9 /* My Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0DE7C4C22C486D6900BF11D9 /* Profile.storyboard */,
+				0DE7C4C32C486D6900BF11D9 /* ProfileController.swift */,
+			);
+			name = "My Profile";
+			path = "Restaurant/Navigation/My Profile";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -219,6 +234,7 @@
 			files = (
 				0D2480782C3EC13C0089ECAD /* Assets.xcassets in Resources */,
 				0D24807B2C3EC13C0089ECAD /* Base in Resources */,
+				0DE7C4C52C486D6900BF11D9 /* Profile.storyboard in Resources */,
 				0D2480762C3EC13B0089ECAD /* Base in Resources */,
 				0DA6A64C2C43E61900E9CF35 /* WriteComment.storyboard in Resources */,
 				0DA6A64A2C43E61900E9CF35 /* Details.storyboard in Resources */,
@@ -239,6 +255,7 @@
 				0D864DBA2C3ECC1800E9CE36 /* Objects.swift in Sources */,
 				0DA6A64E2C43E61900E9CF35 /* DetailsViewController.swift in Sources */,
 				0DA6A64D2C43E61900E9CF35 /* DetailsShowTableViewCell.swift in Sources */,
+				0DE7C4C62C486D6900BF11D9 /* ProfileController.swift in Sources */,
 				0DA6A6552C43F54800E9CF35 /* UserDefaultsHelperMethods.swift in Sources */,
 				0D24806F2C3EC13B0089ECAD /* AppDelegate.swift in Sources */,
 				0D0ADB072C440C3A00DA1D2D /* MapViewController.swift in Sources */,
@@ -399,6 +416,8 @@
 				DEVELOPMENT_TEAM = 827YQ2VQ9C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Restaurant/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -409,7 +428,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Restaurant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.finki.restaurant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -427,6 +446,8 @@
 				DEVELOPMENT_TEAM = 827YQ2VQ9C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Restaurant/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -437,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Restaurant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.finki.restaurant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

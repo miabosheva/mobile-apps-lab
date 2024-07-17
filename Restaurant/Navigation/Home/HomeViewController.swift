@@ -79,7 +79,16 @@ extension HomeViewController {
             action: #selector(mapItemActionHandler)
         )
         mapItem.tintColor = .orange
-        navigationItem.rightBarButtonItem = mapItem
+        navigationItem.leftBarButtonItem = mapItem
+        
+        let myProfileItem = UIBarButtonItem(
+            image: UIImage(systemName: "person.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(myProfileActionHandler)
+        )
+        myProfileItem.tintColor = .orange
+        navigationItem.rightBarButtonItem = myProfileItem
     }
 }
 
@@ -90,4 +99,10 @@ extension HomeViewController {
         navigationController?.pushViewController(mapVC, animated: true)
     }
     
+    @objc func myProfileActionHandler() {
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let profileController = storyboard.instantiateViewController(withIdentifier: "profileController") as! ProfileController
+        let navigationController = UINavigationController(rootViewController: profileController)
+        present(navigationController, animated: true)
+    }
 }
